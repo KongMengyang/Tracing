@@ -1,0 +1,51 @@
+One of the points necessary to calibrate the size of this image.Accuracy in locating this point determines the accuracy of your final measurement.
+One of the points necessary to calibrate the size of this image.Accuracy in locating this point determines the accuracy of your final measurement.
+Highest point of the ear canal;mostsuperior point of the external auditory meatus.
+Lowest point of the roof of orbit;mostinferior point of the externalborder of the orbital cavity.
+Inetersection of the inferior border of the formen rotundum with the posterior wall of the pterygomaxillary fissure.
+Center of the piyuitary fossa of the sphenoid bone.
+Intersection of the internasal suture with the nasofrontal suture in the midsagittal plane.
+Most inferior posterior point of  the occipital bone at the anterior margin of the occipital foramen.
+Most anterior point on the frontal bone.(Krogman&Sassouni,1957)
+Soft tissue profile's most concave point at the bridge of the nose.
+Mid-point from soft tissue Nasion to Tip of Nose;first contour encountered along the length of the profilr on the nose.
+Pronasale.Point of the anterior curve of the nose.
+Point where the nose connects to the center of upper lip.
+Soft tissue point A;most concave point between subnasale and the anterior point of the upper lip.
+Most anterior point on the curve of the upper lip.
+Most inferior point on the curva of the upper lip.
+Most superior point on the curve of the lower lip.
+Most anterior point on the curve of the lower lip.
+Most concave point between the lower lip and the soft tissue chin.
+Point on the anterior curve of soft tissue chin.
+The midpoint between the most anterior and inferior points of the soft tissue chin in the midsagittal plane(Spiro J.Chacones,1980)
+The most inferior point of the soft tissue chin.
+Intersection of lines tangent to the neck and the throat.
+Most posterior point in the concavity along te anterior border of the symphysis.
+Most anterior point on the mid-sagittal symphysis.
+Midpoint between the most anterior and inferior point on the bony chin.(Brodie,1941)
+Most inferior point of the symphysis.
+Location depends on analysis:1)most convex point along the inferior border of the Ramus;or,2)most convex point where the posterior inferior curve of the ramus meet.
+Most posterior point up the border of the ramus.
+Most concave point on the interior of the ramus.Used to locate Xi point.
+Most inferior border along the top of the ramus.Used to locate Xi point.
+Posterior border of the neck of the condyle.
+Most posterior superior point ofthe condyle.
+Deepest point of the curve of the maxilla,between anterior nasal spine(ANS) and the dental alveolus.
+The tip of the anterior nasal spine.
+Tip of the posterior nasal spine.
+Mesial cusp tip of the maxillary molar.
+Mesial buccal cusp tip of the mandibular molar.
+Distal surface of the upper first molar,perpendicular to the occlusal plane.
+Mesial surface of the upper first molar,perpendicular to the occlusal plane.
+Distal surface of the lower first molar,perpendicular to the occlusal plane.
+Mesial surface of the lower first molar,perpendicular to the occlusal plane.
+Labial cemento-enamel junction(CEJ) of the lower central incisor.
+Tip of the lower central incisor.
+Root apex of the lower central incisor.
+Lingual cemento-enamel junction(CEJ) of the lower central incisor.
+Labial cemento-enamel junction(CEJ) of the upper central incisor.
+Incisal tip of the upper central incisor.
+Root apex of the upper central incisor.
+Lingual cemento-enamel junction(CEJ) of the upper central incisor.
+This is the end of the landmarklist to digitize.If you are finished simply hit "OK" now.

@@ -1,0 +1,51 @@
+Ruler Point1
+Ruler Point2
+Porion
+Orbitale
+PT Point
+Sella
+Nasion
+Basion
+S.T.Glabella
+ST Nasion
+Bridge of Nose
+Tip of Nose
+Subnasale
+ST A-Point
+Upper Lip
+Stomion superius
+Stomion inferius
+Lower Lip
+ST B-Point
+ST Pogonion
+ST Gnathion
+Soft Tissue Menton
+Throat Point
+B Point
+Pogonion
+Anatomical Gnathion
+Menton 
+Gonion
+Ramus Point
+Mid Ramus(R1)
+Sigmoid Notch(R3)
+Articulare
+Condylion
+A Point
+ANS
+PNS
+U6 Occlusal
+L6 Occlusal
+Distal U6
+Mesial U6
+Distal L6
+Mesial L6
+L1 Labial Gingival Border
+L1 Tip
+L1 Root
+L1 Lingual Gingival Border
+U1 Labial Gingival Border
+U1 Tip
+U1 Root
+U1 Lingual Gingival Border
+<End of List>
