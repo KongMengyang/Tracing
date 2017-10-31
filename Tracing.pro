@@ -15,13 +15,16 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     mylabel.cpp \
-    spline.cpp
+    spline.cpp \
+    reportdialog.cpp
 
 HEADERS  += mainwindow.h \
     mylabel.h \
-    spline.h
+    spline.h \
+    reportdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    reportdialog.ui
 
 RESOURCES += \
     res.qrc

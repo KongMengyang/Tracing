@@ -477,7 +477,6 @@ void myLabel::mousePressEvent(QMouseEvent* event)
     QPoint qp(event->pos());
     point p;
     p=qpTop(qp);
-    qDebug()<<qp<<" "<<p.x<<" "<<p.y;
     */
     if(flag_start==false){
         return;
@@ -590,11 +589,18 @@ void myLabel::mouseMoveEvent(QMouseEvent* event)
         if(flag_pointselected==true&&type_Pointselected==2)
         {
             assistPoints[selectedPoint_i][selectedPoint_j]=event->pos();
+            shiftX[selectedPoint_i][selectedPoint_j]=event->pos().x()-points[selectedPoint_i].x();
+            shiftY[selectedPoint_i][selectedPoint_j]=event->pos().y()-points[selectedPoint_i].y();
         }
         else
         {
 
             points[selectedPoint_i]=event->pos();
+            for(int i=0;i<assistPoints[selectedPoint_i].size();i++)
+            {
+                assistPoints[selectedPoint_i][i].setX(event->pos().x()+shiftX[selectedPoint_i][i]);
+                assistPoints[selectedPoint_i][i].setY(event->pos().y()+shiftY[selectedPoint_i][i]);
+            }
         }
     }
 
@@ -658,9 +664,9 @@ QPainterPath getPath(std::vector<point> line)
     //point *knots=s->knots;
     size=s->size();
     if(s->size()>0){
-        path=QPainterPath(QPoint(s->getX(0),s->getY(0)));
+        path=QPainterPath(QPointF(s->getX(0),s->getY(0)));
         for(int i=0;i<s->size()-1;i++){
-            path.lineTo(QPoint(s->getX(i+1),s->getY(i+1)));
+            path.lineTo(QPointF(s->getX(i+1),s->getY(i+1)));
         }
     }
     delete s;
@@ -681,7 +687,6 @@ double getRatio1(QPoint a,QPoint b)
     else
     {
         double tan=(double)(b.y()-a.y())/(b.x()-a.x());
-        qDebug()<<tan;
         double theta=atan(tan);
         return theta/(2*pi)*360;
     }
@@ -738,7 +743,6 @@ void myLabel::paintEvent(QPaintEvent* event)
         int height=(int)distancep2p(points[47],points[48]);
         int width=tooth[3].width()*height/tooth[3].height();
         double ratio=getRatio1(points[48],points[47])-90;
-        qDebug()<<ratio;
         painter.translate(points[47]);
         painter.rotate(ratio);
         painter.drawPixmap(-width*31/61,-height,width,height,tooth[3]);
@@ -752,6 +756,7 @@ void myLabel::paintEvent(QPaintEvent* event)
     //画线
 
     painter.setRenderHint(QPainter::Antialiasing, true);
+    //painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
     painter.setPen(QPen(QColor(0,255,0,150),2,Qt::SolidLine,Qt::RoundCap,Qt::MiterJoin));
 
     getlines();
@@ -767,7 +772,8 @@ void myLabel::paintEvent(QPaintEvent* event)
 
             if(pointSettled[keyPointOfLines[i]]==true)
             {
-               QPainterPath path=getCurvePath(lines2[i],false);
+               //QPainterPath path=getCurvePath(lines2[i],false);
+               QPainterPath path=getPath(lines[i]);
                painter.drawPath(path);
             }
         }

@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>reportDialog</class>
+ <widget class="QDialog" name="reportDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>457</width>
+    <height>491</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>401</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10000</width>
+     <height>10000</height>
+    </size>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="textElideMode">
+    <enum>Qt::ElideLeft</enum>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>11</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>12</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>13</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>14</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>15</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>项目</string>
+    </property>
+    <property name="background">
+     <color>
+      <red>255</red>
+      <green>255</green>
+      <blue>255</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>参考值</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>测量值</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>对比</string>
+    </property>
+   </column>
+   <item row="0" column="0">
+    <property name="text">
+     <string>SNA角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="0" column="1">
+    <property name="text">
+     <string>82.8±4.0°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="0" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="0" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="1" column="0">
+    <property name="text">
+     <string>SNB角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="1" column="1">
+    <property name="text">
+     <string>80.1±3.9°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="1" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="1" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="2" column="0">
+    <property name="text">
+     <string>ANB角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="2" column="1">
+    <property name="text">
+     <string>2.7±2.0°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="2" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="2" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="3" column="0">
+    <property name="text">
+     <string>NP-FH面角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="3" column="1">
+    <property name="text">
+     <string>85.4±3.7°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="3" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="3" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="4" column="0">
+    <property name="text">
+     <string>Y轴角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="4" column="1">
+    <property name="text">
+     <string>66.3±7.1°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="4" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="4" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="5" column="0">
+    <property name="text">
+     <string>MP-FH颌平面角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="5" column="1">
+    <property name="text">
+     <string>31.1±5.6°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="5" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="5" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="6" column="0">
+    <property name="text">
+     <string>NA-PA颌凸角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="6" column="1">
+    <property name="text">
+     <string>6.0±4.4°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="6" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="6" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="7" column="0">
+    <property name="text">
+     <string>上1-SN角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="7" column="1">
+    <property name="text">
+     <string>105.7±6.3°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="7" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="7" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="8" column="0">
+    <property name="text">
+     <string>上1-NA距</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="8" column="1">
+    <property name="text">
+     <string>5.1±2.4mm</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="8" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="8" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="9" column="0">
+    <property name="text">
+     <string>上1-NA角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="9" column="1">
+    <property name="text">
+     <string>22.8±5.7°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="9" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="9" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="10" column="0">
+    <property name="text">
+     <string>下1-MP角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="10" column="1">
+    <property name="text">
+     <string>93.9±6.2°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="10" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="10" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="11" column="0">
+    <property name="text">
+     <string>下1-NB距</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="11" column="1">
+    <property name="text">
+     <string>6.7±2.1mm</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="11" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="11" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="12" column="0">
+    <property name="text">
+     <string>下1-NB角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="12" column="1">
+    <property name="text">
+     <string>30.5±5.8°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="12" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="12" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="13" column="0">
+    <property name="text">
+     <string>上1-下1角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="13" column="1">
+    <property name="text">
+     <string>124.2±8.2°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="13" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="13" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="14" column="0">
+    <property name="text">
+     <string>NLA角</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="14" column="1">
+    <property name="text">
+     <string>95±15.0°</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="14" column="2">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+   <item row="14" column="3">
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

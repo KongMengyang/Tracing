@@ -14,6 +14,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QPixmap>
+#include <QPointF>
 
 #include <spline.h>
 #include <cmath>

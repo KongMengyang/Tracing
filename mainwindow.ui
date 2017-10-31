@@ -233,6 +233,13 @@
                   </property>
                  </widget>
                 </item>
+                <item>
+                 <widget class="QPushButton" name="sharpenPushButton">
+                  <property name="text">
+                   <string>锐化</string>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </item>
               <item>
@@ -252,9 +259,16 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton">
+                 <widget class="QPushButton" name="pointDispalyPushButton">
                   <property name="text">
                    <string>显示点</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="completePushButton">
+                  <property name="text">
+                   <string>完成</string>
                   </property>
                  </widget>
                 </item>
@@ -266,13 +280,6 @@
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_5">
-                <item>
-                 <widget class="QPushButton" name="sharpenPushButton">
-                  <property name="text">
-                   <string>锐化</string>
-                  </property>
-                 </widget>
-                </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_11">
                   <item>

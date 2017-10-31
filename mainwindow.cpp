@@ -34,8 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
         QListWidgetItem* lst = new QListWidgetItem(point_name,ui->pointslistWidget);
         ui->pointslistWidget->addItem(lst);
         points_detail[i]=in1.readLine();
-        //qDebug()<<i;
-        //qDebug()<<points_detail[i];
 
     }
 
@@ -46,7 +44,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->scrollAreaWidgetContents->setMouseTracking(true);
     ui->imageLabel->setMouseTracking(true);
 
-    screen = QGuiApplication::primaryScreen();
+    //screen = QGuiApplication::primaryScreen();
+
+
+
 
 
 
@@ -103,7 +104,6 @@ void MainWindow::on_openPushbutton_clicked()
                 else
                 {
 
-                    //qDebug()<<i;
                     int value=i-5;
                     currentWidth=initialWidth*value/100;
                     currentHeight=initialHeight*value/100;
@@ -126,7 +126,6 @@ void MainWindow::on_openPushbutton_clicked()
                     }
                     else
                     {
-                        //qDebug()<<"1";
                         ui->scrollAreaWidgetContents->setFixedSize(currentWidth,currentHeight);
                     }
                     ui->imageLabel->setPixmap(QPixmap::fromImage(originimage));
@@ -190,7 +189,6 @@ QImage MatToQImage(const cv::Mat& mat)
     }
     else if(mat.type() == CV_8UC4)
     {
-        qDebug() << "CV_8UC4";
         // Copy input Mat
         const uchar *pSrc = (const uchar*)mat.data;
         // Create QImage with same dimensions as input Mat
@@ -237,7 +235,6 @@ void MainWindow::imageupdate()
     QImage newImage=originimage.scaled(currentWidth,currentHeight);;
     //ui->imageLabel->setScaledContents(false);
 
-    //qDebug()<<ui->scrollArea->size()<<" "<<ui->scrollAreaWidgetContents->size()<<" "<<ui->imageLabel->size()<<" "<<ui->zoomSlider->value();
 
 
     /**/
@@ -362,7 +359,6 @@ void MainWindow::instructSlot(int index)
     QImage img0=QImage(filepath0);
     QImage img1=QImage(filepath1);
 
-    //qDebug()<<filepath0;
     //ui->instructimgLabel->setScaledContents(true);
     ui->instructLabel0->setPixmap(QPixmap::fromImage(img0));
     ui->instructLabel1->setPixmap(QPixmap::fromImage(img1));/**/
@@ -384,7 +380,7 @@ void MainWindow::ScaleSlot(int x,int y){
     //pix=QPixmap::fromImage(image);
     //int rx=ui->imageLabel->x()+ui->scrollArea->x()+ui->scrollAreaWidgetContents->x()+ui->centralWidget->x();
     //int ry=ui->imageLabel->y()+ui->scrollArea->y()+ui->scrollAreaWidgetContents->y()+ui->centralWidget->y();
-   /**/
+   /*
     QPixmap pix;
     pix=grabpixmap.copy(x-50,y-50,100,100);
     grabpixmap = screen->grabWindow(0);
@@ -396,7 +392,7 @@ void MainWindow::ScaleSlot(int x,int y){
     pen.setWidth(4);
     painter.setPen(pen);
     painter.drawPoint(100,100);
-    ui->ScaleLabel->setPixmap(pix);
+    ui->ScaleLabel->setPixmap(pix);*/
 
 }
 
@@ -443,7 +439,11 @@ void MainWindow::on_templetPushButton_clicked()
     templetSignal();
 }
 
-void MainWindow::on_pushButton_clicked()
+
+
+
+
+void MainWindow::on_pointDispalyPushButton_clicked()
 {
     if(ui->imageLabel->flag_drawPoint==true)
     {
@@ -454,4 +454,162 @@ void MainWindow::on_pushButton_clicked()
         ui->imageLabel->flag_drawPoint=true;
     }
     ui->imageLabel->update();
+
 }
+
+void MainWindow::on_completePushButton_clicked()
+{
+    if(ui->imageLabel->index<50)
+    {
+        QMessageBox::information(this,QString("请先完成选点"),QString("请先完成选点!"));
+        return;
+    }
+
+
+
+    //新建一个窗口对象，其中的this指定了新的窗口的父对象是MainWindow，在销毁Mainwindow时也会销毁子对象，即该窗口对象
+    rd = new reportDialog(this);
+    //Modal属性决定了show()应该将弹出的dialog设置为模态还是非模态
+    //默认情况下该属性为false并且show（）弹出的窗口是非模态的
+    //把这个属性设置为true就详单与设置QWidget::windowModality为Qt::ApplicationModal
+    //执行exec（）忽略这个Modal这个属性，并且把弹出的dialog设置为模态的
+    getResults();
+    rd->update();
+    rd->setModal(false);    //此处ture为模态，false为非模态
+    rd->show();
+}
+
+double MainWindow::angle_2lines(QPoint a,QPoint b,QPoint c,QPoint d)
+{
+    double result;
+    double x1=a.x()-b.x();
+    double x2=d.x()-c.x();
+    double y1=a.y()-b.y();
+    double y2=d.y()-c.y();
+    double cosvalue=(x1*x2+y1*y2)/(sqrt(x1*x1+y1*y1)*sqrt(x2*x2+y2*y2));
+    result=acos(cosvalue)/3.1415*180;
+    return result;
+}
+double MainWindow::distance_pointtoline(QPoint a, QPoint b, QPoint c)
+{
+    double result;
+    if(b.x()==c.x())
+    {
+        result=a.x()-b.x();
+    }
+    else if(b.y()==c.y())
+    {
+        result=a.y()-b.y();
+    }
+    else
+    {
+        double k=(b.y()-c.y())/(b.x()-c.x());
+        double bb=b.y()-k*b.x();
+        result=(a.y()-k*a.x()-bb)/sqrt(1.0+k*k);
+    }
+    if(result<0)
+    {
+        result=-result;
+    }
+    result=result*10/length_10mm;
+    return result;
+
+}
+double MainWindow::distancep2p(QPoint a,QPoint b)
+{
+    return sqrt((a.x()-b.x())*(a.x()-b.x())+(a.y()-b.y())*(a.y()-b.y()));
+}
+
+
+void MainWindow::getObjResult(int x)
+{
+    tclObj obj=targetObj[x];
+
+    if(obj.type==1)
+    {
+        double result=angle_2lines(obj.points[0],obj.points[1],obj.points[3],obj.points[2]);
+
+        QString strResult=QString::number(result, 10, 1);
+        strResult+="°";
+        int row=x;
+        //QTableWidgetItem *newitem=new QTableWidgetItem(strResult);
+        //newitem->setTextAlignment(Qt::AlignCenter);
+        //ui->tableWidget->setItem(row,2,newitem);
+
+
+        rd->results[x]=strResult;
+        double min=obj.min;
+        double max=obj.max;
+        if(result<min)
+        {
+
+            rd->result_type[x]=1;
+        }
+        else if(result>max)
+        {
+
+            rd->result_type[x]=2;
+        }
+        else
+        {
+            rd->result_type[x]=0;
+        }
+    }
+    else if(obj.type==2)
+    {
+        int row=x;
+        double min=obj.min;
+        double max=obj.max;
+        double result=distance_pointtoline(obj.points[0],obj.points[1],obj.points[2]);
+        QString strResult=QString::number(result, 10, 1);
+        strResult+="mm";
+        //QTableWidgetItem *newitem=new QTableWidgetItem(strResult);
+        //newitem->setTextAlignment(Qt::AlignCenter);
+        //ui->tableWidget->setItem(row,2,newitem);
+
+
+        rd->results[x]=strResult;
+        if(result<min)
+        {
+
+            rd->result_type[x]=1;
+        }
+        else if(result>max)
+        {
+
+            rd->result_type[x]=2;
+        }
+        else
+        {
+            rd->result_type[x]=0;
+        }
+    }
+}
+
+void MainWindow::getResults()
+{
+
+    length_10mm=distancep2p(ui->imageLabel->points[0],ui->imageLabel->points[1]);
+    targetObj[0]=tclObj(86.8,68.8,1,ui->imageLabel->points[5],ui->imageLabel->points[6],ui->imageLabel->points[33],ui->imageLabel->points[6]);//SNA
+    targetObj[1]=tclObj(84.0,76.2,1,ui->imageLabel->points[5],ui->imageLabel->points[6],ui->imageLabel->points[23],ui->imageLabel->points[6]);//SNB
+    targetObj[2]=tclObj(4.7,0.7,1,ui->imageLabel->points[33],ui->imageLabel->points[6],ui->imageLabel->points[23],ui->imageLabel->points[6]);//ANB
+    targetObj[3]=tclObj(89.1,81.7,1,ui->imageLabel->points[2],ui->imageLabel->points[3],ui->imageLabel->points[24],ui->imageLabel->points[6]);//NP-FH面角
+    targetObj[4]=tclObj(73.4,59.2,1,ui->imageLabel->points[3],ui->imageLabel->points[2],ui->imageLabel->points[25],ui->imageLabel->points[5]);//Y轴角
+    targetObj[5]=tclObj(36.7,25.5,1,ui->imageLabel->points[3],ui->imageLabel->points[2],ui->imageLabel->points[26],ui->imageLabel->points[27]);//MP-FH下颌平面角
+    targetObj[6]=tclObj(10.4,1.6,1,ui->imageLabel->points[6],ui->imageLabel->points[33],ui->imageLabel->points[33],ui->imageLabel->points[24]);//NP-PA颌凸角
+    targetObj[7]=tclObj(112.0,99.4,1,ui->imageLabel->points[5],ui->imageLabel->points[6],ui->imageLabel->points[47],ui->imageLabel->points[48]);//上1-SN角
+    targetObj[8]=tclObj(7.5,2.7,2,ui->imageLabel->points[47],ui->imageLabel->points[6],ui->imageLabel->points[33],ui->imageLabel->points[0]);//上1-NA距
+    targetObj[9]=tclObj(28.5,17.1,1,ui->imageLabel->points[48],ui->imageLabel->points[47],ui->imageLabel->points[6],ui->imageLabel->points[33]);//上1-NA角
+    targetObj[10]=tclObj(100.1,87.7,1,ui->imageLabel->points[27],ui->imageLabel->points[26],ui->imageLabel->points[43],ui->imageLabel->points[44]);//下1-MP角
+    targetObj[11]=tclObj(8.8,4.6,2,ui->imageLabel->points[43],ui->imageLabel->points[6],ui->imageLabel->points[23],ui->imageLabel->points[0]);//下1-NB距
+    targetObj[12]=tclObj(36.1,24.5,1,ui->imageLabel->points[23],ui->imageLabel->points[6],ui->imageLabel->points[44],ui->imageLabel->points[43]);//下1-NB角
+    targetObj[13]=tclObj(132.4,116.0,1,ui->imageLabel->points[48],ui->imageLabel->points[47],ui->imageLabel->points[44],ui->imageLabel->points[43]);//上1-下1角
+    targetObj[14]=tclObj(110,80,1,ui->imageLabel->assistPoints[12][3],ui->imageLabel->points[12],ui->imageLabel->points[14],ui->imageLabel->points[12]);//NLA角
+
+    for(int i=0;i<15;i++)
+    {
+        getObjResult(i);
+    }
+
+}
+
